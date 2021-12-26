@@ -1,0 +1,16 @@
+
+GET http://localhost:3001/api/blogs
+
+
+###
+
+POST   http://localhost:3001/api/blogs
+Content-Type: application/json
+
+ {
+     
+    "title": "jhjyuil",
+    "author": "f9dddd9",
+    "likes": 0,
+    "url": "http://localhost:3001/api/blogs"
+}
