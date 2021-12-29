@@ -9,8 +9,8 @@ Content-Type: application/json
 
  {
      
-    "title": "jhjyuil",
-    "author": "f9dddd9",
+    "title": "ade",
+    "author": "f9dddd",
     "likes": 0,
     "url": "http://localhost:3001/api/blogs"
 }
