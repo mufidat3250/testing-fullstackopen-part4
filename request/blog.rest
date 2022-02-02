@@ -14,3 +14,31 @@ Content-Type: application/json
     "likes": 0,
     "url": "http://localhost:3001/api/blogs"
 }
+
+###
+
+POST   http://localhost:3001/api/blogs
+Content-Type: application/json
+
+ {
+     
+    "title": "mutiya",
+    "author": "scmkfef",
+    "url": "http://localhost:3001/api/blogs"
+}
+###
+DELETE  http://localhost:3001/api/blogs/5a422a851b54a676234d17f7
+
+###
+PUT   http://localhost:3001/api/blogs/61f97e8632b573f236c05465
+Content-Type: application/json
+
+ {
+    "title": "ade",
+    "author": "f9dddd",
+    "url": "http://localhost:3001/api/blogs",
+    "likes": 8,
+    "id": "61f97e8632b573f236c05465"
+  }
+
+
