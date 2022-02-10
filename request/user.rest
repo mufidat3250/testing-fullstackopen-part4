@@ -1,0 +1,11 @@
+GET http://localhost:3001/api/users
+###
+POST   http://localhost:3001/api/users
+Content-Type: application/json
+
+{
+   "username": "isla",
+   "name": "zainab",
+   "password": "vjmjkkjjj",
+   "blogId":"6204fdb73815942c3b92f12f"
+}

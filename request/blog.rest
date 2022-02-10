@@ -7,12 +7,12 @@ GET http://localhost:3001/api/blogs
 POST   http://localhost:3001/api/blogs
 Content-Type: application/json
 
- {
-     
-    "title": "ade",
-    "author": "f9dddd",
+ {     
+    "title": "i love coding",
+    "author": "yes i do",
     "likes": 0,
-    "url": "http://localhost:3001/api/blogs"
+    "url": "http://localhost:3001/api/blogs",
+   "userId":"6204fdb73815942c3b92f12f"
 }
 
 ###
@@ -21,10 +21,8 @@ POST   http://localhost:3001/api/blogs
 Content-Type: application/json
 
  {
-     
-    "title": "mutiya",
     "author": "scmkfef",
-    "url": "http://localhost:3001/api/blogs"
+    "likes": 0
 }
 ###
 DELETE  http://localhost:3001/api/blogs/5a422a851b54a676234d17f7
@@ -42,16 +40,6 @@ Content-Type: application/json
   }
 
 
-###
-GET http://localhost:3001/api/users
-###
-POST   http://localhost:3001/api/users
-Content-Type: application/json
 
- {
-     
-   
-    "password":"sff"
 
-}
 

@@ -2,8 +2,8 @@ const mongoose = require("mongoose");
 const suppertest = require("supertest");
 const app = require("../app");
 const helper = require("../utils/list_helper").blogs;
-console.log(helper.length);
 const api = suppertest(app);
+const userInDb = require("../tests/test_helper").usersInDb();
 const Blog = require("../models/blogListModel");
 const defaltlikes = require("../utils/blog_helper");
 const titleUrl = require("../utils/blog_helper");
@@ -82,20 +82,28 @@ test("missing like propertice default to 0", async () => {
   const likes = defaltlikes.defaultBlog(testLike);
 
   expect(likes).toHaveProperty("likes");
-});
+}, 10000);
 
 test("missing title and url", async () => {
   const newblog = {
-    _id: "5a422a851b54a676234d17f7",
     author: "Michael Chan",
     likes: 7,
-    id: "5a422a851b54a676234d17f7",
   };
-  const noBlogTItleandUrl = titleUrl.titleAndUrl(newblog);
-  await api.post("/api/blogs").send(noBlogTItleandUrl).expect(400);
-}, 10000);
 
-test("delete a post", async () => {});
+  await api.post("/api/blogs").send(newblog).expect(400);
+});
+
+test("Invalid users are not created", async () => {
+  const newUser = {
+    name: "djdffgh",
+    password: "sff",
+  };
+  await api
+    .post("/api/users")
+    .send(newUser)
+    .expect("Content-Type", /application\/json/)
+    .expect(400);
+}, 10000);
 
 afterAll(() => {
   mongoose.connection.close();
