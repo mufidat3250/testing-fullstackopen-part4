@@ -4,8 +4,8 @@ POST   http://localhost:3001/api/users
 Content-Type: application/json
 
 {
-   "username": "isla",
-   "name": "zainab",
-   "password": "vjmjkkjjj",
+   "username": "alfa",
+   "name": "taye",
+   "password": "asiwaju",
    "blogId":"6204fdb73815942c3b92f12f"
 }

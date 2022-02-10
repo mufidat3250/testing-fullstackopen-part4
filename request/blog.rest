@@ -6,13 +6,14 @@ GET http://localhost:3001/api/blogs
 
 POST   http://localhost:3001/api/blogs
 Content-Type: application/json
+Authorization:bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6ImJlem9zIiwiaWQiOiI2MjA0ZmVmZWQxZmJhMDkzZjM2MDBlMWIiLCJpYXQiOjE2NDQ1MTI2MTMsImV4cCI6MTY0NDUxNjIxM30.Co5RZKBaJ8ttHnocobXZHJs5k9fhOG792zFGpGbxoSY
 
  {     
-    "title": "i love coding",
-    "author": "yes i do",
+    "title": "i this choking",
+    "author": "yes it",
     "likes": 0,
     "url": "http://localhost:3001/api/blogs",
-   "userId":"6204fdb73815942c3b92f12f"
+   "userId":"62052fd03ee4ebbf8f7594bd"
 }
 
 ###
@@ -24,6 +25,12 @@ Content-Type: application/json
     "author": "scmkfef",
     "likes": 0
 }
+
+
+
+
+
+
 ###
 DELETE  http://localhost:3001/api/blogs/5a422a851b54a676234d17f7
 
