@@ -3,17 +3,15 @@ GET http://localhost:3001/api/blogs
 
 
 ###
-
-POST   http://localhost:3001/api/blogs
+POST http://localhost:3001/api/blogs
 Content-Type: application/json
-Authorization:bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6ImJlem9zIiwiaWQiOiI2MjA0ZmVmZWQxZmJhMDkzZjM2MDBlMWIiLCJpYXQiOjE2NDQ1MTI2MTMsImV4cCI6MTY0NDUxNjIxM30.Co5RZKBaJ8ttHnocobXZHJs5k9fhOG792zFGpGbxoSY
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMGI3ZjNlZDMyMzlmZjFlMzI5MjE2ZiIsImlhdCI6MTY0NDkyMzQ2MSwiZXhwIjoxNjQ0OTI3MDYxfQ.NV3r8U-MRRMRPBBS6uYQw5sjtE8ExZalWPbMIq8epWs
 
  {     
-    "title": "i this choking",
-    "author": "yes it",
-    "likes": 0,
+    "title": "the channel",
+    "author": "the king",
     "url": "http://localhost:3001/api/blogs",
-   "userId":"62052fd03ee4ebbf8f7594bd"
+    "likes": 0
 }
 
 ###
@@ -25,12 +23,6 @@ Content-Type: application/json
     "author": "scmkfef",
     "likes": 0
 }
-
-
-
-
-
-
 ###
 DELETE  http://localhost:3001/api/blogs/5a422a851b54a676234d17f7
 

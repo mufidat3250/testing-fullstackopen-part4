@@ -20,6 +20,7 @@ mongoose
     logger.error("error connecting to db", error.message);
   });
 app.use(express.json());
+app.use(middleware.tokenExtractor);
 app.use(middleware.requestLogger);
 app.use("/api/blogs", blogRouter);
 app.use("/api/users", usersRouter);

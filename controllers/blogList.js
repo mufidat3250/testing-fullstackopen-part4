@@ -4,14 +4,7 @@ const jwt = require("jsonwebtoken");
 
 const Blog = require("../models/blogListModel");
 const User = require("../models/user");
-
-const getTokenFrom = (request) => {
-  const authorization = request.get("authorization");
-  if (authorization && authorization.toLowerCase().startsWith("bearer ")) {
-    return authorization.substring(7);
-  }
-  return null;
-};
+const tokenExtractor = require("../utils/middleware").tokenExtractor;
 
 blogRouter.get("/", async (request, response) => {
   // await Blog.deleteMany({});
@@ -19,11 +12,11 @@ blogRouter.get("/", async (request, response) => {
   response.json(blogs);
 });
 
-blogRouter.post("/", async (request, response, next) => {
+blogRouter.post("/", tokenExtractor, async (request, response) => {
   const blog = request.body;
+  console.log(tokenExtractor);
 
-  const token = getTokenFrom(request);
-  const decodedToken = jwt.verify(token, process.env.SECRET);
+  const decodedToken = jwt.verify(request.token, process.env.SECRET);
   console.log({ decodedToken });
 
   if (!decodedToken.id) {
@@ -48,7 +41,7 @@ blogRouter.post("/", async (request, response, next) => {
   user.blog = user.blog.concat(savedBlog._id);
   await user.save();
 
-  response.json(savedBlog);
+  response.status(201).json(savedBlog);
 });
 
 blogRouter.get("/:id", async (request, response) => {
@@ -60,7 +53,8 @@ blogRouter.get("/:id", async (request, response) => {
   }
 });
 
-blogRouter.delete("/:id", async (request, response) => {
+blogRouter.delete("/:id", async (request, response, next) => {
+  console.log(Blog);
   await Blog.findByIdAndRemove(request.params.id);
   response.status(204).end();
 });

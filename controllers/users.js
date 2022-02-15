@@ -9,12 +9,14 @@ usersRouter.get("/", async (request, response) => {
   response.json(users);
 });
 
-usersRouter.post("/", async (request, response, next) => {
+usersRouter.post("/", async (request, response) => {
   const body = request.body;
 
-  // console({ body });
+  // console.log({ body });
+  console.log(Blog);
 
   const blog = await Blog.findById(body.blogId);
+  // console.log(blog);
 
   if (body.password.length < 3) {
     response.status(400).json({ error: "longer password length" });
@@ -27,12 +29,11 @@ usersRouter.post("/", async (request, response, next) => {
     username: body.username,
     name: body.name,
     passwordHash,
-    blog: blog._id,
   });
 
   const savedUser = await user.save();
-  blog.user = blog.user.concat(savedUser._id);
-  await user.save();
+  // blog.user = blog.user.concat(savedUser._id);
+  // await user.save();
 
   response.json(savedUser);
 });
