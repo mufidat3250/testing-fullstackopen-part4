@@ -1,5 +1,4 @@
 const blogRouter = require("express").Router();
-
 const jwt = require("jsonwebtoken");
 
 const Blog = require("../models/blogListModel");
@@ -53,9 +52,22 @@ blogRouter.get("/:id", async (request, response) => {
   }
 });
 
-blogRouter.delete("/:id", async (request, response, next) => {
-  console.log(Blog);
-  await Blog.findByIdAndRemove(request.params.id);
+blogRouter.delete("/:id", async (request, response) => {
+  console.log({ Blog });
+
+  if (!request.token) {
+    return response.status(401).json({ error: "Authentication required" });
+  }
+  const blog = await Blog.findById(request.params.id);
+
+  const decodedToken = jwt.verify(request.token, process.env.SECRET);
+
+  if (blog.user.toString() !== decodedToken.id) {
+    return response.status(401).json({ error: "Authentication failed" });
+  }
+
+  blog.remove();
+
   response.status(204).end();
 });
 
