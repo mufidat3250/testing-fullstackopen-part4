@@ -2,7 +2,6 @@ const express = require("express");
 require("express-async-errors");
 const app = express();
 const config = require("./utils/config");
-
 const blogRouter = require("./controllers/blogList");
 
 const middleware = require("./utils/middleware");
@@ -20,12 +19,15 @@ mongoose
     logger.error("error connecting to db", error.message);
   });
 app.use(express.json());
-app.use(middleware.tokenExtractor);
+
 app.use(middleware.requestLogger);
-app.use("/api/blogs", blogRouter);
+
+app.use("/api/blogs", middleware.tokenExtractor, blogRouter);
+
 app.use("/api/users", usersRouter);
 app.use("/api/login", loginRouter);
 app.use(middleware.unKnownEndpoint);
 app.use(middleware.errorHandler);
+app.use(middleware.userExtractor);
 
 module.exports = app;

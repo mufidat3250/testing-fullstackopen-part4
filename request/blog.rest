@@ -5,7 +5,7 @@ GET http://localhost:3001/api/blogs
 ###
 POST http://localhost:3001/api/blogs
 Content-Type: application/json
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMGJhNWFhZDFkNjZlNjMyOTVjNDJlNyIsImlhdCI6MTY0NDkzOTE0OSwiZXhwIjoxNjQ0OTQyNzQ5fQ._wY1I3uOYSqH_MmrwVm4bbV7D-Nl_fd0vYvh3k1QP5w
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMGQwY2RkZDg1ZjhkOGU5Yzc1MGVjNSIsImlhdCI6MTY0NTAyNjYzNywiZXhwIjoxNjQ1MDMwMjM3fQ.dCshNqr6sRcV92Nk9AlfjMLiDKOODlTf2io9mvLv4z0
 
  {     
     "title": "the channel",
@@ -24,8 +24,8 @@ Content-Type: application/json
     "likes": 0
 }
 ###
-DELETE  http://localhost:3001/api/blogs/620bd2564eae72057d9e8e4f
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMGJhNWFhZDFkNjZlNjMyOTVjNDJlNyIsImlhdCI6MTY0NDk0MDQ5MywiZXhwIjoxNjQ0OTQ0MDkzfQ.YFFc0FlNUwA43d2syq_QaH-DTcSCrWSxIOT-l5ol9Bw
+DELETE  http://localhost:3001/api/blogs/620bd1df4eae72057d9e8e41
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMGJhNWFhZDFkNjZlNjMyOTVjNDJlNyIsImlhdCI6MTY0NDk0ODA4NywiZXhwIjoxNjQ0OTUxNjg3fQ.eMPFBWc4d7eBAA5fP4lkK3uLMU4GEfJyUqGJ0tA5zhA
 ###
 
 

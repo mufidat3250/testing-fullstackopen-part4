@@ -3,7 +3,7 @@ const jwt = require("jsonwebtoken");
 
 const Blog = require("../models/blogListModel");
 const User = require("../models/user");
-const tokenExtractor = require("../utils/middleware").tokenExtractor;
+const userExtractor = require("../utils/middleware").userExtractor;
 
 blogRouter.get("/", async (request, response) => {
   // await Blog.deleteMany({});
@@ -11,22 +11,12 @@ blogRouter.get("/", async (request, response) => {
   response.json(blogs);
 });
 
-blogRouter.post("/", tokenExtractor, async (request, response) => {
+blogRouter.post("/", userExtractor, async (request, response) => {
   const blog = request.body;
-  console.log(tokenExtractor);
+  const user = request.user;
+  console.log({ userobj: request.user });
 
-  const decodedToken = jwt.verify(request.token, process.env.SECRET);
-  console.log({ decodedToken });
-
-  if (!decodedToken.id) {
-    return response.status(401).json({ error: "token missing or invalid" });
-  }
-
-  const user = await User.findById(decodedToken.id);
-
-  console.log({ user });
-
-  // console.log("userId:", user);
+  //all the proccess is in the middle ware userExtractor
 
   let blogL = new Blog({
     title: blog.title,
